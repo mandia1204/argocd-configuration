@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: security-app
+spec:
+  selector:
+    matchLabels:
+      app: security
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: security
+    spec:
+      containers:
+      - name: res-security
+        image: mandia1204/securityapp:06202022_52
+        ports:
+        - containerPort: 3001
+        volumeMounts:
+        - mountPath: /var/www/config
+          name: config
+        env:
+          - name: SECURITY_DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: security-app
+                key: dbUserName
+          - name: SECURITY_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: security-app
+                key: dbPassword
+          - name: SECURITY_ACCESS_TOKEN_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: security-app
+                key: dbAccessTokenSecret
+          - name: SECURITY_REFRESH_TOKEN_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: security-app
+                key: dbRefreshTokenSecret
+      volumes:
+        - name: config
+          configMap:
+            name: security-config
+            items:
+            - key: app-config
+              path: production.js
