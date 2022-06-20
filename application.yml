@@ -6,8 +6,7 @@ metadata:
   labels:
     name: restaurant-app
 spec:
-  # The project the application belongs to.
-  project: default
+  project: restaurant-app
   source:
     repoURL: git@github.com:mandia1204/argocd-configuration.git
     targetRevision: HEAD  # For Helm, this refers to the chart version.
