@@ -42,7 +42,7 @@ spec:
     namespace: argocd
     server: 'https://kubernetes.default.svc'
   source:
-    path: .
+    path: secrets
     plugin:
       name: argocd-vault-plugin
     repoURL: git@github.com:mandia1204/argocd-configuration.git
