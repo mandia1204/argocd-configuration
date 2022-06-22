@@ -24,10 +24,27 @@ spec:
     - CreateNamespace=true # Namespace Auto-Creation ensures that namespace specified as the application destination exists in the destination cluster.
     - PrunePropagationPolicy=foreground # Supported policies are background, foreground and orphan.
     - PruneLast=true # Allow the ability for resource pruning to happen as a final, implicit wave of a sync operation
-    # The retry feature is available since v1.7
-    # retry:
-    #   limit: 5 # number of failed sync attempt retries; unlimited number of attempts if less than 0
-    #   backoff:
-    #     duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
-    #     factor: 2 # a factor to multiply the base duration after each failed retry
-    #     maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+    retry:
+      limit: 3 # number of failed sync attempt retries; unlimited number of attempts if less than 0
+      backoff:
+        duration: 5s # the amount to back off. Default unit is seconds, but could also be a duration (e.g. "2m", "1h")
+        factor: 2 # a factor to multiply the base duration after each failed retry
+        maxDuration: 3m # the maximum amount of time allowed for the backoff strategy
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argo-vault
+  namespace: argocd
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: .
+    plugin:
+      name: argocd-vault-plugin
+    repoURL: git@github.com:mandia1204/argocd-configuration.git
+    targetRevision: HEAD
+  project: default
