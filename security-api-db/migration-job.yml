@@ -1,0 +1,32 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: security-db-migration
+spec:
+  template:
+    spec:
+      containers:
+      - name: security-db-migrations
+        image: security-app-db
+        command: ["npm",  "run", "migrate-dev"]
+        env:
+        - name: SECURITY_DB_HOST
+          value: "security-db"
+        - name: DEBUG
+          value: "app:*"
+        - name: NODE_ENV
+          value: "production"
+        - name: NODE_CONFIG_DIR
+          value: "./src/config"
+        - name: ADMIN_DB_USER
+          valueFrom:
+              secretKeyRef:
+                name: security-app-db
+                key: rootUserName
+        - name: ADMIN_DB_PASSWORD
+          valueFrom:
+              secretKeyRef:
+                name: security-app-db
+                key: rootUserPass
+      restartPolicy: Never
+  backoffLimit: 2
