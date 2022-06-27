@@ -8,7 +8,7 @@ spec:
       containers:
       - name: security-db-migrations
         image: mandia1204/security-db:06272022_1
-        command: ["npm",  "run", "migrate-dev"]
+        command: ["npm",  "run", "migrate"]
         env:
         - name: SECURITY_DB_HOST
           value: "security-db"
