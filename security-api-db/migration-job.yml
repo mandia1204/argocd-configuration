@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: mandia1204-security-db-06282022-3
+  name: security-db-06282022-4
   namespace: restaurant
   labels:
     app: security-db
@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
         - name: security-db-migrations
-          image: mandia1204/security-db:06282022_3
+          image: mandia1204/security-db:06282022_4
           command: ["npm", "run", "migrate"]
           env:
             - name: SECURITY_DB_HOST
