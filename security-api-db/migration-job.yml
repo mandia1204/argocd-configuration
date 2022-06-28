@@ -1,7 +1,8 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: mandia1204-security-db-06282022_3
+  name: mandia1204-security-db-06282022-3
+  namespace: restaurant
   labels:
     app: security-db
 spec:
