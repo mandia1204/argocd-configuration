@@ -4,13 +4,6 @@ metadata:
   name: security-app
   annotations:
     prometheus.io/scrape: "true"
-    getambassador.io/config: |
-      ---
-      apiVersion: ambassador/v1
-      kind:  Mapping
-      name:  security_app_mapping
-      prefix: /securityApi/
-      service: security-app:3001
 spec:
   selector:
     app: security

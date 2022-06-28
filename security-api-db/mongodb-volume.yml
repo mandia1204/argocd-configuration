@@ -2,6 +2,8 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: mongodb-local-pv
+  labels:
+    app: security-db
 spec:
   capacity:
     storage: 3Gi

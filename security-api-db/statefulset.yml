@@ -3,6 +3,8 @@ kind: StatefulSet
 metadata:
   name: security-db
   namespace: restaurant
+  labels:
+    app: security-db
 spec:
   serviceName: "security-db"
   replicas: 1
