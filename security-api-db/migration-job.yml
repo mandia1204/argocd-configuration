@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: mandia1204/security-db:06282022_2
+  name: mandia1204-security-db-06282022_3
   labels:
     app: security-db
 spec:
@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
         - name: security-db-migrations
-          image: mandia1204/security-db:06282022_2
+          image: mandia1204/security-db:06282022_3
           command: ["npm", "run", "migrate"]
           env:
             - name: SECURITY_DB_HOST
