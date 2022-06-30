@@ -1,0 +1,9 @@
+apiVersion: getambassador.io/v2
+kind: TCPMapping
+metadata:
+  name: security-db
+  namespace: restaurant
+spec:
+  port: 27017
+  enable_ipv4: true
+  service: security-db.restaurant:27017
