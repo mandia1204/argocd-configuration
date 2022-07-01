@@ -19,7 +19,12 @@ spec:
         - name: res-dashboard-be
           image: mandia1204/dashboard-be-app:07012022_2
           volumeMounts:
-            - mountPath: /app
+            - mountPath: /app/secrets.json
+              subPath: secrets.json
+              name: combined
+              readOnly: true
+            - mountPath: /app/appsettings.Production.json
+              subPath: appsettings.Production.json
               name: combined
               readOnly: true
           ports:
