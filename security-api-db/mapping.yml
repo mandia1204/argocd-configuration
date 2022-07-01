@@ -1,9 +1,10 @@
-apiVersion: getambassador.io/v2
+apiVersion: getambassador.io/v3alpha1
 kind: TCPMapping
 metadata:
   name: security-db
   namespace: restaurant
 spec:
+  host: "securitydb.mandialand.com"
   port: 27017
   enable_ipv4: true
   service: security-db.restaurant:27017
