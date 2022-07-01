@@ -16,11 +16,11 @@ spec:
         app: notification
     spec:
       containers:
-      - name: res-notification
-        image: mandia1204/notification-app:06282022_58
-        ports:
-        - containerPort: 5052
-        volumeMounts:
+        - name: res-notification
+          image: mandia1204/notification-app:07012022_2
+          ports:
+            - containerPort: 5052
+          volumeMounts:
             - mountPath: /var/www/config
               name: config
       volumes:
