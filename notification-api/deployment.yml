@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: restaurant
+  name: notification-app
+  labels:
+    app: notification
+spec:
+  selector:
+    matchLabels:
+      app: notification
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: notification
+    spec:
+      containers:
+      - name: res-notification
+        image: mandia1204/notification-app:06282022_58
+        ports:
+        - containerPort: 5052
+        volumeMounts:
+            - mountPath: /var/www/config
+              name: config
+      volumes:
+        - name: config
+          configMap:
+            name: notification-config
