@@ -3,6 +3,8 @@ kind: TCPMapping
 metadata:
   name: security-db
   namespace: restaurant
+  labels:
+    app: security-db
 spec:
   host: "securitydb.mandialand.com"
   port: 27017

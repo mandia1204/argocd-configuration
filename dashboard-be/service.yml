@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: dashboard-be-app
+  namespace: restaurant
+  labels:
+    app: dashboard-be
+spec:
+  selector:
+    app: dashboard-be
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000

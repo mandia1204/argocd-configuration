@@ -1,7 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: restaurant
   name: security-app
+  labels:
+    app: security
 spec:
   selector:
     matchLabels:

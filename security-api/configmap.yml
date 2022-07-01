@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: security-config
+  namespace: restaurant
   labels:
     app: security
 data:
@@ -28,8 +29,8 @@ data:
         useRsa: false,
         useKms: false,
         kmsId: process.env.KMS_ID,
-        issuer: 'security.mattcompany.com',
-        audience: 'restaurant.mattcompany.com',
+        issuer: 'security.mandialand.com',
+        audience: 'restaurant.mandialand.com',
         accessToken: {
           jwtSecret: process.env.SECURITY_ACCESS_TOKEN_SECRET,
           exp: { amount: 30, unit: 'minutes' },

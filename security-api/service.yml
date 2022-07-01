@@ -2,6 +2,9 @@ kind: Service
 apiVersion: v1
 metadata:
   name: security-app
+  namespace: restaurant
+  labels:
+    app: security
   annotations:
     prometheus.io/scrape: "true"
 spec:
