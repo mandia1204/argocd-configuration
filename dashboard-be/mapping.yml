@@ -6,7 +6,7 @@ metadata:
   labels:
     app: dashboard-be
 spec:
-  hostname: "mandialand.com"
+  hostname: "restaurant.mandialand.com"
   prefix: /dashboardApi/
   rewrite: /api/
   service: dashboard-be-app.restaurant:5000
