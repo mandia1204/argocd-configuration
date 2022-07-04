@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: res-notification
-          image: mandia1204/notification-app:07012022_7
+          image: mandia1204/notification-app:07042022_8
           ports:
             - containerPort: 5052
           volumeMounts:
