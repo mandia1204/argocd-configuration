@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: res-security
-          image: mandia1204/securityapp:07012022_62
+          image: mandia1204/securityapp:07042022_63
           ports:
             - containerPort: 3001
           volumeMounts:
