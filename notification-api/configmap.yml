@@ -10,6 +10,6 @@ data:
     module.exports = {
       servicePort: 5052,
       baseDir: process.env.PWD,
-      mutualTls: false,
-      TLS: false,
+      mutualTls: true,
+      TLS: true,
     };
